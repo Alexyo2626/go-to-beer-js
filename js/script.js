@@ -91,7 +91,6 @@
 // }
 // console.log(number);
 
-
 //Нарциса знають всі, нарцис незнає нікого
 // const people = [
 //   {
@@ -196,7 +195,6 @@
 // }
 // console.log(findNarcys(people4));
 
-
 // =======================
 
 /*
@@ -208,11 +206,49 @@
 ? Вставте «Country» та «Reggy» на початок масиву.
  */
 
-const genres = ['Jazz', 'Blues']
-console.log(genres.push("Рок-н-рол"));
-console.log(genres[0]);
-console.log(genres[genres.length - 1]);
-console.log(genres.shift());
-console.log(genres.unshift('Country', 'Reggy'));
-console.log(genres.splice(2, 0, 'Folk'));
-console.log(genres);
+// const genres = ['Jazz', 'Blues']
+// console.log(genres.push("Рок-н-рол"));
+// console.log(genres[0]);
+// console.log(genres[genres.length - 1]);
+// console.log(genres.shift());
+// console.log(genres.unshift('Country', 'Reggy'));
+// console.log(genres.splice(2, 0, 'Folk'));
+// console.log(genres);
+
+/*
+? У нас є об'єкт salaries із зарплатами:
+? Створіть функцію topSalary(salaries), яка повертає ім'я працівника з найбільшою заробітною плантею.
+?
+? Якщо об'єкт salaries порожній, потрібно повернути null.
+? Якщо кілька високооплачуваних працівників, можна повернути будь-кого з них.
+? P.S. Використовуйте Object.entries та деструктурування, щоб перебрати пари ключ/значення.
+*/
+
+const salaries = {
+  John: 100,
+  Pete: 500,
+  Mary: 2500,
+};
+
+function topSalary(salaries) {
+  const salaryArr = Object.entries(salaries);
+  if (salaryArr.length === 0) {
+    return null;
+  }
+  //   console.log(salaryArr);
+  let employee = salaryArr[0][0];
+  //   console.log(employee);
+  let maxSalary = salaryArr[0][1];
+  //   console.log(maxSalary);
+  for (const [name, money] of salaryArr) {
+    //  console.log(salary);
+    //  console.log(salary[1]);
+    if (money > maxSalary) {
+      maxSalary = money;
+      employee = name;
+    }
+    console.log(name, money);
+  }
+  return `${employee} самый богатый с ${maxSalary}`;
+}
+console.log(topSalary(salaries));
